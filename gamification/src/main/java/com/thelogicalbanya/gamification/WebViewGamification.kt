@@ -1,15 +1,20 @@
 package com.thelogicalbanya.gamification
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.AttributeSet
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import com.github.mervick.aes_everywhere.Aes256
 import com.thelogicalbanya.gamification.databinding.LayoutWebviewBinding
 import java.net.URLEncoder
+
 
 class WebViewGamification constructor(context : Context, attrs : AttributeSet): ConstraintLayout(context , attrs){
 
@@ -69,7 +74,16 @@ class WebViewGamification constructor(context : Context, attrs : AttributeSet): 
             binding?.gamificationWebview?.webViewClient = WebViewClient()
             binding?.gamificationWebview?.settings?.mediaPlaybackRequiresUserGesture = false
             binding?.gamificationWebview?.loadUrl(finalUrl)
-        } catch (e: Exception) {
+
+// Set a WebViewClient to handle navigation within the WebView
+            binding?.gamificationWebview?.webViewClient = object : WebViewClient() {
+                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                    // Load the URL in the system browser
+                    startActivity(context ,Intent(Intent.ACTION_VIEW, Uri.parse(url)) , null)
+
+                    return true
+                }
+            }        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
