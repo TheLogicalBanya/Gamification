@@ -1,7 +1,12 @@
 Step 1: Add Dependency to Project level grade
+
+```bash
 implementation ("com.github.TheLogicalBanya:Gamification:v0.1.4")
+```
 
 Step 2: Add maven Repository under dependencyResolutionManagement
+
+```bash
 setting.dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -10,9 +15,11 @@ setting.dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-
+```
 
 Step 3: Add Component to XML
+
+```bash
 <com.thelogicalbanya.gamification.WebViewGamification
     android:id="@+id/web_view_gamification"
     android:layout_width="wrap_content"
@@ -21,11 +28,14 @@ Step 3: Add Component to XML
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
-Step 4   :   Add in Activity Class: (ex: on the click of button)
+```
 
+Step 4   :   Add in Activity Class: (ex: on the click of button) <br/><br/>
 
-Required Parameters List:
+Required Parameters List: (* Required Parameter) <br/>
 Parameter Description
+
+```bash
 clientID* Provided by The Logical Banya.
 key* Authentication key, provided by The Logical Banya.
 userID* A unique identifier for the user.
@@ -36,10 +46,12 @@ utm_param1 Optional Parameter
 utm_param2 Optional Parameter
 utm_param3 Optional Parameter
 utm_param4 Optional Parameter
+```
 
-(* Required Parameter)
+```bash
 val gamification: WebViewGamification = 
 findViewById(R.id.web_view_gamification)
+
 gamification.init(
 clientID = "<clientID_provided_by_TLB>", 
 key = "<key_provided_by_TLB>", 
@@ -52,12 +64,18 @@ utm_param2 = "<Optional_Parameter2>",
 utm_param3 = "<Optional_Parameter3>", 
 utm_param4 = "<Optional_Parameter4>"
 )
+```
+
 Below code for back button support.
+
+```bash
 override fun onBackPressed() {
         if (!webViewGemification?.onBackPressed()!!) {
             super.onBackPressed()
         }
     }
-Version Information:
-Android Level Version
-33, 34 0.1.4
+```
+
+Version Information: <br/><br/>
+Android: 33, 34<br/>
+Level Version: 0.1.4
