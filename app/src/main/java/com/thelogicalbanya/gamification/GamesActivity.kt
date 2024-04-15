@@ -10,9 +10,11 @@ class GamesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_games)
         webViewGamification= findViewById(R.id.button)
-        val keyString = "bR5z6*r$00p#Eno__odrEgeW"
-        val baseUrl = "https://thelogicalbanya.com/popupdemo/dashboard.php"
-        webViewGamification?.init(clientID =    "demo", key = "demo", userID = "100031", username = "TheLogicalBanya",keyString = keyString, baseUrl = baseUrl)
+        val keyString = ""
+        val baseUrl = ""
+
+        webViewGamification?.init(clientID = "", key = "", userID = "",
+         username = "",keyString = keyString, baseUrl = baseUrl)
 
     }
 
