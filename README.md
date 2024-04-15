@@ -1,5 +1,6 @@
 Step 1: Add Dependency to Project level grade
 implementation ("com.github.TheLogicalBanya:Gamification:v0.1.4")
+
 Step 2: Add maven Repository under dependencyResolutionManagement
 setting.dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -9,6 +10,8 @@ setting.dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
+
+
 Step 3: Add Component to XML
 <com.thelogicalbanya.gamification.WebViewGamification
     android:id="@+id/web_view_gamification"
@@ -19,6 +22,8 @@ Step 3: Add Component to XML
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 Step 4   :   Add in Activity Class: (ex: on the click of button)
+
+
 Required Parameters List:
 Parameter Description
 clientID* Provided by The Logical Banya.
@@ -31,6 +36,7 @@ utm_param1 Optional Parameter
 utm_param2 Optional Parameter
 utm_param3 Optional Parameter
 utm_param4 Optional Parameter
+
 (* Required Parameter)
 val gamification: WebViewGamification = 
 findViewById(R.id.web_view_gamification)
